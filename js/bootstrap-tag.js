@@ -41,7 +41,13 @@
         .on('click', function () {
           that.input.focus()
         })
-
+        .on('change', function () {
+            var values = $.map(that.element.val().split(','), $.trim);
+            $.each(values, function() {
+            	that.add(this)
+            })
+        })
+    
       if (that.values.length) {
         $.each(that.values, function () {
           that.createBadge(this)
